@@ -1,0 +1,5 @@
+/eolymp-onsite*
+/.env
+/.testing.env
+/var
+/config.yaml

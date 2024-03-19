@@ -4,6 +4,8 @@ import (
 	"flag"
 	"github.com/things-go/go-socks5"
 	"log"
+	"onsite/internal/domainlist"
+	"onsite/internal/list"
 	"os"
 )
 
@@ -22,48 +24,34 @@ func main() {
 		logger.Fatalf("Unable to read configuration file %#v: %v", filename, err)
 	}
 
-	domainAllowList := DomainList{}
-	domainDenyList := DomainList{}
-	portAllowList := NewPortList()
-	portDenyList := NewPortList()
+	ips := list.New(config.AllowedIP, config.ForbiddenIP)
+	ports := list.New(config.AllowedPorts, config.ForbiddenPorts)
+	domains := domainlist.New(config.AllowedDomains, config.ForbiddenDomains)
 
 	for _, rule := range config.Rules {
-		// deny rule: if no ports are set, domain resolution will be disabled all together
-		if rule.Deny != "" {
-			if len(rule.Ports) == 0 {
-				domainDenyList = append(domainDenyList, rule.Deny)
-				portDenyList.Wildcard(rule.Deny)
-			} else {
-				portDenyList.Add(rule.Deny, rule.Ports...)
-			}
+		if rule.Deny != "" && len(rule.Ports) == 0 {
+			domains.Deny(rule.Deny)
 		}
 
-		// allow rule: if no ports are set, add wildcard allow port
 		if rule.Allow != "" {
-			domainAllowList = append(domainAllowList, rule.Allow)
-
-			if len(rule.Ports) == 0 {
-				portAllowList.Wildcard(rule.Allow)
-			} else {
-				portAllowList.Add(rule.Allow, rule.Ports...)
-			}
+			domains.Allows(rule.Allow)
 		}
 	}
 
-	registry := &Registry{}
 	resolver := &Resolver{
-		logger:   logger,
-		parent:   &socks5.DNSResolver{},
-		registry: registry,
-		allows:   domainAllowList,
-		denies:   domainDenyList,
+		logger:  logger,
+		parent:  &socks5.DNSResolver{},
+		domains: domains,
+	}
+
+	if config.AllowResolvedIPs {
+		resolver.ips = ips
 	}
 
 	rule := &Rule{
-		registry: registry,
-		logger:   logger,
-		allows:   portAllowList,
-		denies:   portDenyList,
+		logger: logger,
+		ips:    ips,
+		ports:  ports,
 	}
 
 	// Create a SOCKS5 server

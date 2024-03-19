@@ -47,4 +47,4 @@ jobs:
             eolymp-onsite-darwin-arm64
             eolymp-onsite-windows-amd64.exe
             eolymp-onsite-windows-arm64.exe
-            config.yml.dist
+            config.yaml.dist

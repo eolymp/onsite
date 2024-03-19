@@ -1,8 +1,8 @@
-package main
+package domainlist
 
 import "testing"
 
-func TestMatchDomain(t *testing.T) {
+func TestMatch(t *testing.T) {
 	tt := []struct {
 		Pattern string
 		Domain  string
@@ -19,7 +19,7 @@ func TestMatchDomain(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.Pattern, func(t *testing.T) {
-			got := MatchDomain(tc.Domain, tc.Pattern)
+			got := Match(tc.Domain, tc.Pattern)
 
 			if got != tc.Match {
 				if tc.Match {

@@ -6,9 +6,16 @@ import (
 )
 
 type Config struct {
-	Network string       `yaml:"network"`
-	Listen  string       `yaml:"listen"`
-	Rules   []ConfigRule `yaml:"rules"`
+	Network          string       `yaml:"network"`
+	Listen           string       `yaml:"listen"`
+	AllowedDomains   []string     `yaml:"allowed_domains"`
+	ForbiddenDomains []string     `yaml:"forbidden_domains"`
+	AllowedIP        []string     `yaml:"allowed_ip"`
+	ForbiddenIP      []string     `yaml:"forbidden_ip"`
+	AllowedPorts     []int        `yaml:"allowed_ports"`
+	ForbiddenPorts   []int        `yaml:"forbidden_ports"`
+	AllowResolvedIPs bool         `yaml:"allow_resolved_ips"`
+	Rules            []ConfigRule `yaml:"rules"`
 }
 
 type ConfigRule struct {

@@ -1,14 +1,12 @@
-package main
+package domainlist
 
-import (
-	"strings"
-)
+import "strings"
 
-// MatchDomain against a pattern:
+// Match domain name against a pattern:
 //   - "*"     matches all domains
 //   - "xyz"   matches domain xyz
 //   - "*.xyz" matches all subdomains of xyz
-func MatchDomain(value string, pattern string) bool {
+func Match(value string, pattern string) bool {
 	if pattern == "*" {
 		return true
 	}
@@ -31,16 +29,4 @@ func MatchDomain(value string, pattern string) bool {
 	}
 
 	return true
-}
-
-type DomainList []string
-
-func (l DomainList) Matches(name string) bool {
-	for _, pattern := range l {
-		if MatchDomain(name, pattern) {
-			return true
-		}
-	}
-
-	return false
 }

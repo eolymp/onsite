@@ -1,25 +1,29 @@
 network: "tcp"
 listen: ":8000"
-rules:
-  - allow: "api.eolymp.com"
-    ports: [443]
-  - allow: "accounts.eolymp.com"
-    ports: [443]
-  - allow: "basecamp.eolymp.com"
-    ports: [443]
-  - allow: "static.eolymp.com"
-    ports: [443]
-  - allow: "static.e-olymp.com"
-    ports: [443]
-  - allow: "eolympusercontent.com"
-    ports: [443]
-  - allow: "fonts.googleapis.com"
-    ports: [80, 443]
-  - allow: "fonts.gstatic.com"
-    ports: [80, 443]
-  - allow: "cdn.jsdelivr.net"
-    ports: [80, 443]
-  - allow: "*.*.amazontrust.com"
-    ports: [80, 443]
-  - allow: "safebrowsing.googleapis.com"
-    ports: [80, 443]
+
+# Filter domain resolution
+allowed_domains:
+  - "api.eolymp.com"
+  - "accounts.eolymp.com"
+  - "basecamp.eolymp.com"
+  - "static.eolymp.com"
+  - "static.e-olymp.com"
+  - "eolympusercontent.com"
+  - "fonts.googleapis.com"
+  - "fonts.gstatic.com"
+  - "cdn.jsdelivr.net"
+  - "*.*.amazontrust.com"
+  - "safebrowsing.googleapis.com"
+
+forbidden_domains: []
+
+# Filter destination IPs
+allowed_ip: []
+forbidden_ip: []
+
+# Add IPs returned by DNS resolver to allow list
+allow_resolved_ips: true
+
+# Filter destination ports
+allowed_ports: [80, 443]
+forbidden_ports: []

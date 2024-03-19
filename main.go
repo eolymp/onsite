@@ -34,7 +34,7 @@ func main() {
 		}
 
 		if rule.Allow != "" {
-			domains.Allows(rule.Allow)
+			domains.Allow(rule.Allow)
 		}
 	}
 

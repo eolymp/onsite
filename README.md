@@ -71,10 +71,10 @@ The recommended way of configuring proxy is to use these options together: `allo
 
 Each workstation should be configured to use Onsite Proxy as proxy server. Proxy server type should be set to `SOCK5`, the address should correspond to the IP address of the server where Onsite Proxy is installed and port should be set to `8000` (or other as specified in `config.yaml`). If configuration has option "Use proxy for DNS resolution", this option should be enabled.
 
-You should be able to configure proxy server in your OS network settings, although some browsers allow to manually override proxy configuration in their of settings (eg. [Firefox](https://support.mozilla.org/en-US/kb/connection-settings-firefox)).
+You should be able to configure proxy server in your OS network settings, although some browsers allow to manually override proxy configuration in their own settings (eg. [Firefox](https://support.mozilla.org/en-US/kb/connection-settings-firefox)).
 
 <p align="center">
-  <img width="400" alt="Firefox Proxy Configuration" src="https://github.com/eolymp/onsite/assets/576301/0d14cf49-ec9c-4834-b14c-bb0a510eb64a">
+  <img width="675" alt="Screenshot 2024-03-19 at 15 53 05" src="https://github.com/eolymp/onsite/assets/576301/3b4ea976-91d1-48d5-9511-a1e2596abf26">
 
 <p align="center">
   <i>Firefox Proxy Configuration</i>

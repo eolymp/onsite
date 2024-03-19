@@ -66,3 +66,17 @@ This configuration will automatically add IP addresses returned by DNS resolver 
 ### Recommended
 
 The recommended way of configuring proxy is to use these options together: `allowed_domains`, `allowed_ports` and `allow_resolved_ips` set to true. This way, the proxy server will only resolve requests to `allowed_domains` and allow traffic only to IP addresses corresponding to the allowed domains.
+
+## Setup proxy on workstations
+
+Each workstation should be configured to use Onsite Proxy as proxy server. Proxy server type should be set to `SOCK5`, the address should correspond to the IP address of the server where Onsite Proxy is installed and port should be set to `8000` (or other as specified in `config.yaml`). If configuration has option "Use proxy for DNS resolution", this option should be enabled.
+
+You should be able to configure proxy server in your OS network settings, although some browsers allow to manually override proxy configuration in their of settings (eg. [Firefox](https://support.mozilla.org/en-US/kb/connection-settings-firefox)).
+
+<p align="center">
+  <img width="400" alt="Firefox Proxy Configuration" src="https://github.com/eolymp/onsite/assets/576301/0d14cf49-ec9c-4834-b14c-bb0a510eb64a">
+
+<p align="center">
+  <i>Firefox Proxy Configuration</i>
+
+

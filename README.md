@@ -74,9 +74,9 @@ Each workstation should be configured to use Onsite Proxy as proxy server. Proxy
 You should be able to configure proxy server in your OS network settings, although some browsers allow to manually override proxy configuration in their own settings (eg. [Firefox](https://support.mozilla.org/en-US/kb/connection-settings-firefox)).
 
 <p align="center">
-  <img width="675" alt="Screenshot 2024-03-19 at 15 53 05" src="https://github.com/eolymp/onsite/assets/576301/3b4ea976-91d1-48d5-9511-a1e2596abf26">
+  <img width="675" alt="Proxy Configuration in Firefox" src="https://github.com/eolymp/onsite/assets/576301/3b4ea976-91d1-48d5-9511-a1e2596abf26">
 
 <p align="center">
-  <i>Firefox Proxy Configuration</i>
+  <i>Proxy Configuration in Firefox</i>
 
 

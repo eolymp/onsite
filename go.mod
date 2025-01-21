@@ -6,3 +6,5 @@ require (
 	github.com/things-go/go-socks5 v0.0.5
 	gopkg.in/yaml.v3 v3.0.1
 )
+
+require golang.org/x/net v0.28.0 // indirect

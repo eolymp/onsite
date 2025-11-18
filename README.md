@@ -28,7 +28,7 @@ Onsite Proxy acts as a DNS resolver, it will receive DNS requests, check domain 
 allowed_domains:
   - "*.eolymp.com"
 forbidden_domains:
-  - "basecamp.eolymp.com"
+  - "eolymp.com"
 ```
 
 Domain names can be fully specified, or may be set as patterns with the wildcard symbol `*`. The wildcard symbol will match a single, entier, segment of domain name separated by `.`. For example, pattern `*.xyz` will match any first level subdomain of `xyz`, except for `xyz` itself or subdomains of second+ level.

@@ -5,7 +5,7 @@ listen: ":8000"
 allowed_domains:
   - "api.eolymp.com"
   - "accounts.eolymp.com"
-  - "basecamp.eolymp.com"
+  - "eolymp.com"
   - "static.eolymp.com"
   - "static.e-olymp.com"
   - "eolympusercontent.com"

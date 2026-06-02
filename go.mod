@@ -1,11 +1,9 @@
 module onsite
 
-go 1.24.0
-
-toolchain go1.24.1
+go 1.26.3
 
 require (
-	github.com/things-go/go-socks5 v0.0.5
+	github.com/things-go/go-socks5 v0.1.1
 	gopkg.in/yaml.v3 v3.0.1
 )
 
